@@ -47,7 +47,7 @@ const PortfolioSection = () => {
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="portfolio-item animate-fade-in-up"
+              className="portfolio-item group animate-fade-in-up"
               style={{animationDelay: `${item.id * 0.1}s`}}
             >
               <img

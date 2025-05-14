@@ -141,7 +141,7 @@
 }
 
 .portfolio-item {
-  @apply relative overflow-hidden group;
+  @apply relative overflow-hidden;
 }
 
 .portfolio-item img {
