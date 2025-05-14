@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,80 +6,74 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 7%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -96,6 +91,100 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+.hero-section {
+  @apply relative h-screen w-full overflow-hidden bg-allison-dark;
+}
+
+.hero-section::after {
+  content: '';
+  @apply absolute inset-0 bg-allison-dark/25 z-10;
+}
+
+.hero-content {
+  @apply relative z-20 h-full w-full flex flex-col items-center justify-center text-center px-4;
+}
+
+.service-card {
+  @apply relative overflow-hidden transition-all duration-300 bg-white shadow-sm hover:shadow-lg;
+}
+
+.service-card:hover .service-overlay {
+  @apply opacity-100;
+}
+
+.service-card:hover .service-icon {
+  @apply -translate-y-6;
+}
+
+.service-card:hover .service-title {
+  @apply -translate-y-6;
+}
+
+.service-overlay {
+  @apply absolute inset-0 bg-allison-dark/80 opacity-0 transition-opacity duration-300 flex items-center justify-center p-6;
+}
+
+.service-icon {
+  @apply text-4xl mb-4 text-allison-dark transition-transform duration-300;
+}
+
+.service-title {
+  @apply text-xl font-medium mb-2 transition-transform duration-300;
+}
+
+.portfolio-item {
+  @apply relative overflow-hidden group;
+}
+
+.portfolio-item img {
+  @apply transition-transform duration-500 group-hover:scale-105;
+}
+
+.portfolio-overlay {
+  @apply absolute inset-0 bg-allison-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+  flex flex-col items-center justify-center text-white p-4;
+}
+
+.testimonial-card {
+  @apply bg-white p-8 shadow-sm rounded-sm;
+}
+
+.section-heading {
+  @apply text-4xl md:text-5xl font-playfair font-medium mb-12 text-center relative after:content-[''] after:block 
+  after:w-24 after:h-0.5 after:bg-allison-dark after:mx-auto after:mt-4;
+}
+
+.nav-link {
+  @apply relative text-allison-light hover:text-allison-accent transition-colors duration-200 px-4 py-2 tracking-wider;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-allison-accent transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.scroll-down {
+  @apply absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer;
+}
+
+.scroll-down::before {
+  content: '';
+  @apply block w-6 h-10 border-2 border-white rounded-full mx-auto relative;
+}
+
+.scroll-down::after {
+  content: '';
+  @apply block w-1 h-2 bg-white rounded-full mx-auto animate-bounce absolute left-1/2 transform -translate-x-1/2 top-4;
 }
