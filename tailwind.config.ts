@@ -67,7 +67,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				"allison": {
+				"azhizen": {
 					"dark": "#121212",
 					"light": "#FFFFFF",
 					"accent": "#D8D8D8"
