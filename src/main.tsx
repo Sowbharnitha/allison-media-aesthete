@@ -11,8 +11,10 @@ const initAnimations = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          if (entry.target instanceof HTMLElement) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
         }
       });
     }, { threshold: 0.15 });

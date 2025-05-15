@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				playfair: ['"Playfair Display"', 'serif'],
-				montserrat: ['Montserrat', 'sans-serif'],
+				sans: ['"Inter"', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

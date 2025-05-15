@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,30 +32,44 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-allison-dark py-2' 
+          ? 'bg-background/90 backdrop-blur-md py-3 shadow-sm' 
           : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        <div className="text-allison-light font-playfair text-2xl font-medium">
-          Azhizen Media
-        </div>
+        <AnimatedElement type="fade-in">
+          <div className="text-foreground font-sans text-2xl font-bold tracking-tight">
+            Azhizen
+          </div>
+        </AnimatedElement>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-1">
-          <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
-          <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
-          <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
-          <button onClick={() => scrollToSection('portfolio')} className="nav-link">Portfolio</button>
-          <button onClick={() => scrollToSection('testimonials')} className="nav-link">Testimonials</button>
-          <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+          <AnimatedElement type="fade-in" delay="delay-100">
+            <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
+          </AnimatedElement>
+          <AnimatedElement type="fade-in" delay="delay-200">
+            <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
+          </AnimatedElement>
+          <AnimatedElement type="fade-in" delay="delay-300">
+            <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
+          </AnimatedElement>
+          <AnimatedElement type="fade-in" delay="delay-400">
+            <button onClick={() => scrollToSection('portfolio')} className="nav-link">Portfolio</button>
+          </AnimatedElement>
+          <AnimatedElement type="fade-in" delay="delay-500">
+            <button onClick={() => scrollToSection('testimonials')} className="nav-link">Testimonials</button>
+          </AnimatedElement>
+          <AnimatedElement type="fade-in" delay="delay-600">
+            <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+          </AnimatedElement>
         </div>
 
         {/* Mobile Navigation Trigger */}
         <button 
-          className="md:hidden text-allison-light"
+          className="md:hidden text-foreground"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,17 +78,17 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div 
-        className={`md:hidden fixed inset-0 z-40 bg-allison-dark transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-lg transform transition-transform duration-500 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
-          <button onClick={() => scrollToSection('home')} className="text-2xl text-allison-light hover:text-allison-accent">Home</button>
-          <button onClick={() => scrollToSection('about')} className="text-2xl text-allison-light hover:text-allison-accent">About</button>
-          <button onClick={() => scrollToSection('services')} className="text-2xl text-allison-light hover:text-allison-accent">Services</button>
-          <button onClick={() => scrollToSection('portfolio')} className="text-2xl text-allison-light hover:text-allison-accent">Portfolio</button>
-          <button onClick={() => scrollToSection('testimonials')} className="text-2xl text-allison-light hover:text-allison-accent">Testimonials</button>
-          <button onClick={() => scrollToSection('contact')} className="text-2xl text-allison-light hover:text-allison-accent">Contact</button>
+          <button onClick={() => scrollToSection('home')} className="text-2xl text-foreground hover:text-accent transition-colors">Home</button>
+          <button onClick={() => scrollToSection('about')} className="text-2xl text-foreground hover:text-accent transition-colors">About</button>
+          <button onClick={() => scrollToSection('services')} className="text-2xl text-foreground hover:text-accent transition-colors">Services</button>
+          <button onClick={() => scrollToSection('portfolio')} className="text-2xl text-foreground hover:text-accent transition-colors">Portfolio</button>
+          <button onClick={() => scrollToSection('testimonials')} className="text-2xl text-foreground hover:text-accent transition-colors">Testimonials</button>
+          <button onClick={() => scrollToSection('contact')} className="text-2xl text-foreground hover:text-accent transition-colors">Contact</button>
         </div>
       </div>
     </nav>

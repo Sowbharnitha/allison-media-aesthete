@@ -1,4 +1,6 @@
 
+import AnimatedElement from './AnimatedElement';
+
 const portfolioItems = [
   {
     id: 1,
@@ -40,26 +42,32 @@ const portfolioItems = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-24 bg-white">
+    <section id="portfolio" className="py-28 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-heading">Our Portfolio</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioItems.map((item) => (
-            <div
-              key={item.id}
-              className="portfolio-item group animate-fade-in-up"
-              style={{animationDelay: `${item.id * 0.1}s`}}
+        <AnimatedElement>
+          <h2 className="section-heading">Portfolio</h2>
+        </AnimatedElement>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.map((item, index) => (
+            <AnimatedElement 
+              key={item.id} 
+              type="fade-in" 
+              delay={`delay-${(index % 3) * 100}` as any} 
+              threshold={0.1}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-96 object-cover"
-              />
-              <div className="portfolio-overlay">
-                <h3 className="text-xl font-playfair mb-2">{item.title}</h3>
-                <p className="text-sm text-allison-accent">{item.category}</p>
+              <div className="portfolio-item group h-[400px] relative cursor-pointer">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="portfolio-overlay">
+                  <h3 className="text-xl font-sans font-bold mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.category}</p>
+                </div>
               </div>
-            </div>
+            </AnimatedElement>
           ))}
         </div>
       </div>

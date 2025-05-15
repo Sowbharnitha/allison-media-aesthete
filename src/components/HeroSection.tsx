@@ -42,14 +42,14 @@ const HeroSection = () => {
       >
         <img 
           src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" 
-          alt="Azhizen Media photography hero" 
-          className="w-full h-full object-cover"
+          alt="Hero background" 
+          className="w-full h-full object-cover opacity-80"
         />
       </div>
-      <div className="hero-content">
+      <div className="hero-content max-w-6xl mx-auto">
         <AnimatedElement type="fade-in">
           <h1 
-            className="text-5xl md:text-7xl lg:text-8xl text-azhizen-light font-playfair font-semibold mb-8 leading-tight parallax-text" 
+            className="text-6xl md:text-8xl lg:text-9xl text-white font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text" 
             style={{ transform: `translateY(${-scrollPosition * 0.15}px)` }}
           >
             Azhizen Media
@@ -58,7 +58,7 @@ const HeroSection = () => {
         
         <AnimatedElement type="fade-in" delay="delay-300">
           <p 
-            className="text-xl md:text-2xl lg:text-3xl text-azhizen-light max-w-2xl mx-auto mb-16 parallax-text" 
+            className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-12 parallax-text" 
             style={{ transform: `translateY(${-scrollPosition * 0.1}px)` }}
           >
             Elevating brands through captivating visuals and compelling storytelling
@@ -74,7 +74,7 @@ const HeroSection = () => {
                   portfolioSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-transparent hover:bg-azhizen-light text-azhizen-light hover:text-azhizen-dark border-2 border-azhizen-light px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
+              className="bg-transparent hover:bg-white text-white hover:text-black border border-white px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
             >
               View Our Work
             </button>
@@ -88,7 +88,7 @@ const HeroSection = () => {
                   contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-azhizen-light text-azhizen-dark hover:bg-transparent hover:text-azhizen-light border-2 border-azhizen-light px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
+              className="bg-white text-black hover:bg-transparent hover:text-white border border-white px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
             >
               Get In Touch
             </button>
