@@ -48,28 +48,28 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-1">
           <AnimatedElement type="fade-in" delay="delay-100">
-            <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
+            <button onClick={() => scrollToSection('home')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>Home</button>
           </AnimatedElement>
           <AnimatedElement type="fade-in" delay="delay-200">
-            <button onClick={() => scrollToSection('about')} className="nav-link">About</button>
+            <button onClick={() => scrollToSection('about')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>About</button>
           </AnimatedElement>
           <AnimatedElement type="fade-in" delay="delay-300">
-            <button onClick={() => scrollToSection('services')} className="nav-link">Services</button>
+            <button onClick={() => scrollToSection('services')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>Services</button>
           </AnimatedElement>
           <AnimatedElement type="fade-in" delay="delay-400">
-            <button onClick={() => scrollToSection('portfolio')} className="nav-link">Portfolio</button>
+            <button onClick={() => scrollToSection('portfolio')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>Portfolio</button>
           </AnimatedElement>
           <AnimatedElement type="fade-in" delay="delay-500">
-            <button onClick={() => scrollToSection('testimonials')} className="nav-link">Testimonials</button>
+            <button onClick={() => scrollToSection('testimonials')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>Testimonials</button>
           </AnimatedElement>
           <AnimatedElement type="fade-in" delay="delay-600">
-            <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+            <button onClick={() => scrollToSection('contact')} className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}>Contact</button>
           </AnimatedElement>
         </div>
 
         {/* Mobile Navigation Trigger */}
         <button 
-          className="md:hidden text-foreground"
+          className={`md:hidden ${isScrolled ? 'text-foreground' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}

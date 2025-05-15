@@ -1,37 +1,44 @@
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Star, Check, User } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star, Check, User, MessageCircle, Quote } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 const testimonials = [
   {
     id: 1,
     name: "Emily Johnson",
+    position: "Creative Director",
     company: "Luxe Interiors",
-    testimonial: "Azhizen Media transformed our brand imagery with their exceptional photography. Their team understood our aesthetic perfectly and delivered beyond our expectations.",
+    testimonial: "Azhizen Media transformed our brand imagery with their exceptional photography. Their team understood our aesthetic perfectly and delivered beyond our expectations. The attention to detail and professionalism throughout the project was outstanding.",
     avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     rating: 5,
     status: "Verified Client",
-    project: "Brand Photography"
+    project: "Brand Photography",
+    date: "March 2025"
   },
   {
     id: 2,
     name: "Michael Chen",
+    position: "CEO",
     company: "Vertex Studios",
-    testimonial: "Working with Azhizen Media on our corporate videos was a seamless experience from start to finish. Their attention to detail and creative vision elevated our messaging.",
+    testimonial: "Working with Azhizen Media on our corporate videos was a seamless experience from start to finish. Their attention to detail and creative vision elevated our messaging. The team's ability to translate our brand values into compelling visual content has significantly improved our market presence.",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     rating: 5,
     status: "Returning Client",
-    project: "Corporate Video Series"
+    project: "Corporate Video Series",
+    date: "January 2025"
   },
   {
     id: 3,
     name: "Sarah Reynolds",
+    position: "Marketing Director",
     company: "Boutique Fashion",
-    testimonial: "The social media content created by Azhizen Media has significantly increased our engagement metrics. Their strategic approach to visual storytelling has been invaluable.",
+    testimonial: "The social media content created by Azhizen Media has significantly increased our engagement metrics. Their strategic approach to visual storytelling has been invaluable. Within just three months of working together, we've seen a 40% increase in social media engagement and a 25% growth in our online following.",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     rating: 4,
     status: "Verified Client",
-    project: "Social Media Campaign"
+    project: "Social Media Campaign",
+    date: "February 2025"
   }
 ];
 
@@ -79,9 +86,19 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-heading">Client Testimonials</h2>
+        <AnimatedElement>
+          <h2 className="section-heading">Client Testimonials</h2>
+        </AnimatedElement>
         
-        <div className="relative max-w-4xl mx-auto">
+        <AnimatedElement type="fade-in">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <p className="text-lg text-gray-700">
+              Hear what our clients have to say about their experiences working with Azhizen Media.
+            </p>
+          </div>
+        </AnimatedElement>
+        
+        <div className="relative max-w-5xl mx-auto">
           {/* Testimonials Carousel */}
           <div className="overflow-hidden">
             <div 
@@ -93,51 +110,64 @@ const TestimonialsSection = () => {
                   key={testimonial.id} 
                   className="w-full flex-shrink-0 px-4"
                 >
-                  <div className="bg-white rounded-lg shadow-md p-8">
-                    <div className="flex items-center mb-6">
-                      <div className="relative">
-                        <img 
-                          src={testimonial.avatar} 
-                          alt={testimonial.name} 
-                          className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md"
-                        />
-                        <span className="absolute -bottom-2 -right-2 bg-allison-dark text-white p-1 rounded-full">
-                          <User className="w-4 h-4" />
-                        </span>
+                  <AnimatedElement type="fade-in">
+                    <div className="bg-white rounded-lg shadow-lg p-8 md:p-10 relative">
+                      {/* Large quote mark in background */}
+                      <div className="absolute top-6 right-6 text-gray-100">
+                        <Quote size={120} />
                       </div>
-                      <div className="ml-6">
-                        <h4 className="font-playfair text-xl">{testimonial.name}</h4>
-                        <p className="text-gray-600">{testimonial.company}</p>
-                        <div className="flex mt-2">
-                          {renderStars(testimonial.rating)}
+                      
+                      <div className="flex flex-col md:flex-row gap-8 relative z-10">
+                        <div className="md:w-1/3">
+                          <div className="flex flex-col items-center md:items-start">
+                            <div className="relative mb-4">
+                              <img 
+                                src={testimonial.avatar} 
+                                alt={testimonial.name} 
+                                className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                              />
+                              <span className="absolute -bottom-2 -right-2 bg-black text-white p-1 rounded-full">
+                                <MessageCircle className="w-4 h-4" />
+                              </span>
+                            </div>
+                            
+                            <h4 className="text-xl font-bold">{testimonial.name}</h4>
+                            <p className="text-gray-600">{testimonial.position}</p>
+                            <p className="text-gray-800 font-medium mt-1">{testimonial.company}</p>
+                            
+                            <div className="flex mt-3">
+                              {renderStars(testimonial.rating)}
+                            </div>
+                            
+                            <div className="mt-4 text-sm text-gray-500 flex flex-col items-center md:items-start">
+                              <span className="flex items-center text-green-600 mb-1">
+                                <Check className="w-4 h-4 mr-1" />
+                                {testimonial.status}
+                              </span>
+                              <span className="mb-1">{testimonial.project}</span>
+                              <span>{testimonial.date}</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="md:w-2/3 flex items-center">
+                          <blockquote>
+                            <p className="text-gray-700 italic text-lg md:text-xl leading-relaxed">"{testimonial.testimonial}"</p>
+                          </blockquote>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="mb-6">
-                      <p className="text-gray-700 italic text-lg">"{testimonial.testimonial}"</p>
-                    </div>
-                    
-                    <div className="flex flex-wrap justify-between items-center border-t border-gray-100 pt-4">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <span className="flex items-center text-green-600 mr-4">
-                          <Check className="w-4 h-4 mr-1" />
-                          {testimonial.status}
-                        </span>
-                        <span>{testimonial.project}</span>
-                      </div>
-                    </div>
-                  </div>
+                  </AnimatedElement>
                 </div>
               ))}
             </div>
           </div>
           
           {/* Controls */}
-          <div className="mt-8 flex justify-center space-x-4">
+          <div className="mt-10 flex justify-center space-x-4">
             <button 
               onClick={prevTestimonial} 
-              className="p-2 border border-allison-dark hover:bg-allison-dark hover:text-allison-light transition-colors duration-300 rounded-full"
+              className="p-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 rounded-full"
               disabled={isAnimating}
               aria-label="Previous testimonial"
             >
@@ -145,7 +175,7 @@ const TestimonialsSection = () => {
             </button>
             <button 
               onClick={nextTestimonial}
-              className="p-2 border border-allison-dark hover:bg-allison-dark hover:text-allison-light transition-colors duration-300 rounded-full"
+              className="p-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 rounded-full"
               disabled={isAnimating}
               aria-label="Next testimonial"
             >
@@ -154,13 +184,13 @@ const TestimonialsSection = () => {
           </div>
           
           {/* Indicators */}
-          <div className="mt-6 flex justify-center space-x-2">
+          <div className="mt-6 flex justify-center space-x-3">
             {testimonials.map((_, index) => (
               <button 
                 key={index}
                 onClick={() => !isAnimating && setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === currentIndex ? 'bg-allison-dark' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-black' : 'bg-gray-300'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
