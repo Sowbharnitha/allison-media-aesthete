@@ -36,6 +36,37 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="hero-section relative min-h-screen flex flex-col justify-center items-center" ref={heroRef}>
+      <style>
+        {`
+          .wave-gradient {
+            background: linear-gradient(
+              45deg,
+              #ff6b6b,
+              #4ecdc4,
+              #45b7d1,
+              #96c93d,
+              #ff6b6b
+            );
+            background-size: 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: wave 10s ease-in-out forwards;
+          }
+
+          @keyframes wave {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 400% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}
+      </style>
       {/* Note: This component does not rely on third-party cookies. However, if your site uses third-party services (e.g., analytics, ads, or embeds), ensure they function without third-party cookies, as Chrome users may disable them in Privacy Settings. */}
       <div 
         className="absolute inset-0 z-0 parallax-bg" 
@@ -59,7 +90,7 @@ const HeroSection = () => {
       <div className="hero-content max-w-6xl mx-auto text-center relative z-10">
         <AnimatedElement type="fade-in">
           <h1 
-            className="text-6xl md:text-8xl lg:text-9xl text-white font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text" 
+            className="text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text wave-gradient" 
             style={{ transform: `translateY(${-scrollPosition * 0.15}px)` }}
           >
             Azhizen Media
