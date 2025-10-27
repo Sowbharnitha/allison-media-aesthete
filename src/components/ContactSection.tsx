@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, Check } from 'lucide-react';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -17,13 +19,18 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Save to Firebase Firestore
+      await addDoc(collection(db, 'contacts'), {
+        ...formData,
+        timestamp: new Date(),
+        status: 'new'
+      });
+      
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       
@@ -31,7 +38,12 @@ const ContactSection = () => {
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -58,7 +70,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-allison-dark">Location</h4>
-                    <p className="text-gray-600">123 Creative Avenue, New York, NY 10001</p>
+                    <p className="text-gray-600">Azhizen Solutions (OPC) Pvt Ltd,319,Mercury block,KSRCE Neo,Tiruchengode-637215</p>
                   </div>
                 </div>
                 
@@ -68,7 +80,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-allison-dark">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">9750603988</p>
                   </div>
                 </div>
                 
@@ -87,7 +99,7 @@ const ContactSection = () => {
             {/* Map */}
             <div className="h-64 bg-gray-200 w-full overflow-hidden rounded-lg shadow-md">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.25280917326!2d-74.11976341554046!3d40.70517865495546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1615902880508!5m2!1sen!2sca"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.7234567890123!2d77.8123456789!3d11.3456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDIwJzQ0LjQiTiA3N8KwNDgnNTIuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

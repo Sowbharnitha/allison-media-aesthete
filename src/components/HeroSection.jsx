@@ -99,7 +99,15 @@ const HeroSection = () => {
       <div className="hero-content max-w-6xl mx-auto text-center relative z-10">
         <AnimatedElement type="fade-in">
           <h1
+<<<<<<< HEAD
             className={`text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
+=======
+<<<<<<<< HEAD:src/components/HeroSection.tsx
+            className={`text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
+========
+            className={`text-7xl md:text-9xl lg:text-[12rem] font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
+>>>>>>>> main:src/components/HeroSection.jsx
+>>>>>>> main
               isGradientDone ? 'text-white' : 'wave-gradient'
             }`}
             style={{
@@ -151,6 +159,10 @@ const HeroSection = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:src/components/HeroSection.tsx
+>>>>>>> main
       {/* Scroll Down Arrow */}
       <button
         onClick={scrollToAbout}
@@ -159,6 +171,12 @@ const HeroSection = () => {
       >
         <ArrowDown className="text-white animate-bounce mt-6" />
       </button>
+<<<<<<< HEAD
+=======
+========
+
+>>>>>>>> main:src/components/HeroSection.jsx
+>>>>>>> main
     </section>
   );
 };

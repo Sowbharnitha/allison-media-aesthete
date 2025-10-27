@@ -8,8 +8,17 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
+<<<<<<< HEAD
 
 const Index = () => {
+=======
+import { useLocation } from "react-router-dom";
+import { analytics } from "@/lib/firebase";
+
+const Index = () => {
+  const location = useLocation();
+  
+>>>>>>> main
   useEffect(() => {
     // Add Inter font
     const linkElement = document.createElement("link");
@@ -23,6 +32,22 @@ const Index = () => {
     };
   }, []);
   
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    // Handle scroll to section when navigating from other pages
+    if (location.state?.scrollTo) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
+  
+>>>>>>> main
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />

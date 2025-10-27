@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,10 +7,12 @@
     <meta name="description" content="Azhizen Media offers premium photography, videography, and media services for high-end clients and creative professionals." />
     <meta name="author" content="Azhizen Media" />
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Meta Tags for Social Sharing -->
     <meta property="og:title" content="Azhizen Media | Creative Photography & Media Services" />
     <meta property="og:description" content="Premium photography, videography, and media services for high-end clients and creative professionals." />
     <meta property="og:type" content="website" />
@@ -24,8 +25,34 @@
 
   <body>
     <div id="root"></div>
+
+    <!-- GPT Engineer Script -->
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Firebase + Main App Script -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDokIYDwsxarIxxaKgsAEGHWzmawkNZtNw",
+        authDomain: "azhizen-media.firebaseapp.com",
+        projectId: "azhizen-media",
+        storageBucket: "azhizen-media.firebasestorage.app",
+        messagingSenderId: "818735242033",
+        appId: "1:818735242033:web:d2ee6d5e8c3338f229ee10",
+        measurementId: "G-K2X7DFEL8T"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      // Load your app entry file (optional, if using a build tool)
+      import "/src/main.tsx";
+    </script>
   </body>
 </html>
