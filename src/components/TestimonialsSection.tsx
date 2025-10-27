@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Star, Check, User, MessageCircle, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star, Check, MessageCircle, Quote } from 'lucide-react';
 import AnimatedElement from './AnimatedElement';
 
 const testimonials = [
@@ -76,7 +75,7 @@ const TestimonialsSection = () => {
       stars.push(
         <Star 
           key={i} 
-          className={`w-5 h-5 ${i < rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
+          className={`w-5 h-5 group-hover:text-yellow-400 group-hover:fill-yellow-400 ${i < rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
         />
       );
     }
@@ -111,9 +110,9 @@ const TestimonialsSection = () => {
                   className="w-full flex-shrink-0 px-4"
                 >
                   <AnimatedElement type="fade-in">
-                    <div className="bg-white rounded-lg shadow-lg p-8 md:p-10 relative">
+                    <div className="group bg-white hover:bg-black rounded-lg shadow-lg p-8 md:p-10 relative transition-colors duration-300">
                       {/* Large quote mark in background */}
-                      <div className="absolute top-6 right-6 text-gray-100">
+                      <div className="absolute top-6 right-6 text-gray-100 group-hover:text-gray-700">
                         <Quote size={120} />
                       </div>
                       
@@ -126,21 +125,21 @@ const TestimonialsSection = () => {
                                 alt={testimonial.name} 
                                 className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
                               />
-                              <span className="absolute -bottom-2 -right-2 bg-black text-white p-1 rounded-full">
+                              <span className="absolute -bottom-2 -right-2 bg-black text-white p-1 rounded-full group-hover:bg-white group-hover:text-black">
                                 <MessageCircle className="w-4 h-4" />
                               </span>
                             </div>
                             
-                            <h4 className="text-xl font-bold">{testimonial.name}</h4>
-                            <p className="text-gray-600">{testimonial.position}</p>
-                            <p className="text-gray-800 font-medium mt-1">{testimonial.company}</p>
+                            <h4 className="text-xl font-bold group-hover:text-white">{testimonial.name}</h4>
+                            <p className="text-gray-600 group-hover:text-gray-300">{testimonial.position}</p>
+                            <p className="text-gray-800 font-medium mt-1 group-hover:text-white">{testimonial.company}</p>
                             
                             <div className="flex mt-3">
                               {renderStars(testimonial.rating)}
                             </div>
                             
-                            <div className="mt-4 text-sm text-gray-500 flex flex-col items-center md:items-start">
-                              <span className="flex items-center text-green-600 mb-1">
+                            <div className="mt-4 text-sm text-gray-500 group-hover:text-gray-300 flex flex-col items-center md:items-start">
+                              <span className="flex items-center text-green-600 group-hover:text-green-400 mb-1">
                                 <Check className="w-4 h-4 mr-1" />
                                 {testimonial.status}
                               </span>
@@ -152,7 +151,7 @@ const TestimonialsSection = () => {
                         
                         <div className="md:w-2/3 flex items-center">
                           <blockquote>
-                            <p className="text-gray-700 italic text-lg md:text-xl leading-relaxed">"{testimonial.testimonial}"</p>
+                            <p className="text-gray-700 italic text-lg md:text-xl leading-relaxed group-hover:text-white">"{testimonial.testimonial}"</p>
                           </blockquote>
                         </div>
                       </div>

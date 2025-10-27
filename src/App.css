@@ -19,14 +19,24 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes waveGradient {
+  0% {
+    background-position: 0% 50%;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 100% 50%;
   }
 }
+
+.wave-gradient {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4adede, #ff6ec4);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: waveGradient 3s ease-in-out forwards;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {

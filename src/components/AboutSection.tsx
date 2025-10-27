@@ -65,7 +65,7 @@ const AboutSection = () => {
                 <div className="overflow-hidden rounded-lg shadow-lg">
                   <AspectRatio ratio={1/1}>
                     <img 
-                      src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
+                      src="https://images.unsplash.com/photo-1589663923617-baab87300c76?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                       alt="Creative process" 
                       className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
                     />
@@ -79,7 +79,7 @@ const AboutSection = () => {
                 <div className="overflow-hidden rounded-lg shadow-lg">
                   <AspectRatio ratio={1/1}>
                     <img 
-                      src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21" 
+                      src="https://images.unsplash.com/photo-1568086456294-1de64a726415?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFyY2hpdGVjdHVyZSUyMHBvcnRmb2xpb3xlbnwwfHwwfHx8MA%3D%3D" 
                       alt="Photography equipment" 
                       className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
                     />
