@@ -1,109 +1,52 @@
-<<<<<<< HEAD
-
-import AnimatedElement from './AnimatedElement';
-=======
 import AnimatedElement from './AnimatedElement';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
->>>>>>> main
 
 const portfolioItems = [
   {
     id: 1,
     title: "Architectural Photography",
     category: "Photography",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544"
-=======
     description: "Modern architectural compositions capturing light and form",
     image: "https://images.unsplash.com/photo-1649673225564-456b7105336d?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     slug: "architectural-photography"
->>>>>>> main
   },
   {
     id: 2,
     title: "Brand Campaign",
     category: "Marketing",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
-=======
     description: "Strategic visual storytelling for premium brands",
     image: "https://i.pinimg.com/1200x/3e/43/bb/3e43bbe3369aa024d0ca4189d1a5073f.jpg",
     slug: "brand-campaign"
->>>>>>> main
   },
   {
     id: 3,
     title: "Product Showcase",
     category: "Photography",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-=======
     description: "Elegant product photography with artistic flair",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     slug: "product-showcase"
->>>>>>> main
   },
   {
     id: 4,
     title: "Corporate Event",
     category: "Videography",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
-=======
     description: "Professional event documentation and highlights",
     image: "https://plus.unsplash.com/premium_photo-1661304812608-cef75b63a95f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     slug: "corporate-event"
->>>>>>> main
   },
   {
     id: 5,
     title: "Editorial Shoot",
     category: "Photography",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05"
-=======
     description: "Fashion and lifestyle editorial photography",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
     slug: "editorial-shoot"
->>>>>>> main
   },
   {
     id: 6,
     title: "Social Media Campaign",
     category: "Content Creation",
-<<<<<<< HEAD
-    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21"
-  }
-];
-
-const PortfolioSection = () => {
-  return (
-    <section id="portfolio" className="py-28 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <AnimatedElement>
-          <h2 className="section-heading">Portfolio</h2>
-        </AnimatedElement>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item, index) => (
-            <AnimatedElement 
-              key={item.id} 
-              type="fade-in" 
-              delay={`delay-${(index % 3) * 100}`} 
-              threshold={0.1}
-            >
-              <div className="portfolio-item group h-[400px] relative cursor-pointer">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="portfolio-overlay">
-                  <h3 className="text-xl font-sans font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-white/70">{item.category}</p>
-                </div>
-=======
     description: "Engaging content for digital platforms",
     image: "https://i.pinimg.com/1200x/d5/20/fa/d520fac8a38813af49a1737c82415a06.jpg",
     slug: "social-media-campaign"
@@ -213,7 +156,6 @@ const PortfolioSection = () => {
                 <div className={`absolute inset-0 border-2 border-white/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
                   hoveredItem === item.id ? 'animate-pulse' : ''
                 }`} />
->>>>>>> main
               </div>
             </AnimatedElement>
           ))}
@@ -223,8 +165,4 @@ const PortfolioSection = () => {
   );
 };
 
-<<<<<<< HEAD
 export default PortfolioSection;
-=======
-export default PortfolioSection;
->>>>>>> main

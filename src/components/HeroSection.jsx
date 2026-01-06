@@ -11,7 +11,7 @@ const HeroSection = () => {
   useEffect(() => {
     const gradientTimeout = setTimeout(() => {
       setIsGradientDone(true);
-    }, 6800); // ~7s medium-speed gradient animation
+    }, 6800);
 
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -26,14 +26,11 @@ const HeroSection = () => {
   }, []);
 
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const getParallaxValue = () => {
-    if (!heroRef.current || typeof window === 'undefined') return 0;
+    if (!heroRef.current) return 0;
     const viewportHeight = window.innerHeight;
     const scrollRatio = Math.min(scrollPosition / viewportHeight, 1);
     return scrollPosition * 0.4 * scrollRatio;
@@ -42,9 +39,10 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="hero-section relative h-screen w-full flex flex-col justify-center items-center overflow-hidden"
       ref={heroRef}
+      className="hero-section relative h-screen w-full flex flex-col justify-center items-center overflow-hidden"
     >
+      {/* Gradient animation */}
       <style>
         {`
           .wave-gradient {
@@ -64,22 +62,16 @@ const HeroSection = () => {
           }
 
           @keyframes wave {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 400% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 400% 50%; }
+            100% { background-position: 0% 50%; }
           }
         `}
       </style>
 
       {/* Background Video */}
       <div
-        className="absolute inset-0 z-0 parallax-bg"
+        className="absolute inset-0 z-0"
         style={{ transform: `translateY(${getParallaxValue()}px)` }}
       >
         <video
@@ -96,18 +88,10 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="hero-content max-w-6xl mx-auto text-center relative z-10">
+      <div className="hero-content max-w-6xl mx-auto text-center relative z-10 px-4">
         <AnimatedElement type="fade-in">
           <h1
-<<<<<<< HEAD
-            className={`text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
-=======
-<<<<<<<< HEAD:src/components/HeroSection.tsx
-            className={`text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
-========
-            className={`text-7xl md:text-9xl lg:text-[12rem] font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text ${
->>>>>>>> main:src/components/HeroSection.jsx
->>>>>>> main
+            className={`text-[6rem] md:text-[8rem] lg:text-[10rem] font-sans font-bold mb-6 tracking-tighter ${
               isGradientDone ? 'text-white' : 'wave-gradient'
             }`}
             style={{
@@ -121,7 +105,7 @@ const HeroSection = () => {
 
         <AnimatedElement type="fade-in" delay="delay-300">
           <p
-            className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-12 parallax-text"
+            className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-12"
             style={{ transform: `translateY(${-scrollPosition * 0.1}px)` }}
           >
             Elevating brands through captivating visuals and compelling storytelling
@@ -131,13 +115,10 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <AnimatedElement type="fade-in-left" delay="delay-500">
             <button
-              onClick={() => {
-                const portfolioSection = document.getElementById('portfolio');
-                if (portfolioSection) {
-                  portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="bg-transparent hover:bg-white text-white hover:text-black border border-white px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
+              onClick={() =>
+                document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })
+              }
+              className="bg-transparent border border-white text-white px-8 py-4 text-lg hover:bg-white hover:text-black transition-all duration-500 hover:scale-105"
             >
               View Our Work
             </button>
@@ -145,13 +126,10 @@ const HeroSection = () => {
 
           <AnimatedElement type="fade-in-right" delay="delay-600">
             <button
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="bg-white text-black hover:bg-transparent hover:text-white border border-white px-8 py-4 text-lg transition-all duration-500 hover:scale-105"
+              onClick={() =>
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }
+              className="bg-white text-black border border-white px-8 py-4 text-lg hover:bg-transparent hover:text-white transition-all duration-500 hover:scale-105"
             >
               Get In Touch
             </button>
@@ -159,24 +137,14 @@ const HeroSection = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:src/components/HeroSection.tsx
->>>>>>> main
       {/* Scroll Down Arrow */}
       <button
         onClick={scrollToAbout}
-        className="scroll-down-button absolute bottom-8 z-10"
+        className="absolute bottom-8 z-10"
         aria-label="Scroll to About section"
       >
         <ArrowDown className="text-white animate-bounce mt-6" />
       </button>
-<<<<<<< HEAD
-=======
-========
-
->>>>>>>> main:src/components/HeroSection.jsx
->>>>>>> main
     </section>
   );
 };

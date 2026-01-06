@@ -1,4 +1,4 @@
-
+  
 import { Instagram, Facebook, Linkedin, Mail } from 'lucide-react';
 import AnimatedElement from './AnimatedElement';
 
@@ -17,27 +17,16 @@ const Footer = () => {
                 Premium photography and media services for discerning clients who demand excellence in visual storytelling.
               </p>
               <div className="flex space-x-6">
-<<<<<<< HEAD
-                <a href="#" className="text-background hover:text-background/70 transition-colors duration-300">
-=======
                 <a href="https://www.instagram.com/azhizen_solutions?igsh=MWVrb3JrOXFqNzdpcA==" className="text-background hover:text-background/70 transition-colors duration-300">
->>>>>>> main
                   <Instagram size={20} />
                 </a>
                 <a href="#" className="text-background hover:text-background/70 transition-colors duration-300">
                   <Facebook size={20} />
                 </a>
-<<<<<<< HEAD
-                <a href="#" className="text-background hover:text-background/70 transition-colors duration-300">
-                  <Linkedin size={20} />
-                </a>
-                <a href="#" className="text-background hover:text-background/70 transition-colors duration-300">
-=======
                 <a href="https://www.linkedin.com/company/azhizensolutions/" className="text-background hover:text-background/70 transition-colors duration-300">
                   <Linkedin size={20} />
                 </a>
                 <a href="azhizensolutions@azhizen.com" className="text-background hover:text-background/70 transition-colors duration-300">
->>>>>>> main
                   <Mail size={20} />
                 </a>
               </div>
@@ -70,14 +59,11 @@ const Footer = () => {
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Video Editing</a></li>
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Content Creation</a></li>
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Digital Marketing</a></li>
-<<<<<<< HEAD
-=======
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Media Support</a></li>
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Paid Ads Management</a></li>
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Search Engine Optimization</a></li>
                 <li><a href="#" className="text-background/70 hover:text-background transition-colors duration-300">Social Media Management</a></li>
                 
->>>>>>> main
               </ul>
             </AnimatedElement>
           </div>
